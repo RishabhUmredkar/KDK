@@ -11,7 +11,7 @@ body {
 
 .ticket {
     background: white;
-    width: 350px;
+    width: 300px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -19,10 +19,27 @@ body {
     position: relative;
 }
 
-/* Dashed Line Style (not individual dots) */
+/* Container for the dashed line and vertical half-circle */
 .line-break {
-    border-top: 2px dashed #ccc; /* Dashed line with a light gray color */
-    margin: 20px 0; /* Space between the sections */
+    position: relative;
+    width: 100%; /* Full width */
+    border-top: 2px dashed #ccc; /* Dashed line with light gray color */
+    margin: 20px 0; /* Space around the line */
+}
+
+/* Vertical half-circle attached to the right end of the line */
+.line-break::after {
+    content: "";
+    position: absolute;
+    right: 0; /* Attach to the right side of the line */
+    bottom: -10px; /* Position it just below the line */
+    width: 20px; /* Full width of the half circle */
+    height: 20px; /* Full height of the circle */
+    background-color: #000000; /* Match the line color */
+    border-radius: 50% 0 0 50%; /* Create a vertical half circle (right side) */
+
+
+
 }
 
 .ticket-header {
@@ -56,17 +73,19 @@ body {
 
 .ticket-route {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     font-size: 16px;
-    margin: 5px 0; /* Reduce top and bottom margin */
+    margin: 5px 10px; /* Reduce top and bottom margin */
+}
+.arrow {
+    font-size: 30px; /* Increase font size to make the arrow larger */
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin: 0 5px; /* Maintain the same minimal space around the arrow */
+    transform: scaleX(3); /* Scale the arrow horizontally to make it longer */
 }
 
-.arrow {
-    font-size: 20px;
-    font-weight: bold;
-    color: gray;
-}
 
 .ticket-time {
     display: flex;
