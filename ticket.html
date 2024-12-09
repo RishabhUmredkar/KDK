@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Clone</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wdth,wght@96.8,100..800&family=Open+Sans:wght@500&family=Roboto+Slab:wght@200;400&family=Yatra+One&display=swap" rel="stylesheet"> 
+
+<style>
+
+/* General Styles */
+html, body {
+    height: 100%; /* Ensure the full height of the viewport is utilized */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eaaeae;
+    font-family: Arial, sans-serif;
+}
+
+.ticket {
+    background: white;
+    width: 90%; /* Make it responsive by using a percentage */
+    max-width: 300px; /* Limit maximum width for larger devices */
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 50px 20px 20px;
+    text-align: center;
+    position: relative;
+}
+.line-break {
+   
+    border-top: 2px dashed #ccc; /* Dashed line */
+    margin: 20px auto; /* Center it horizontally with margin */
+    position: relative; /* Enable positioning for child elements */
+    right: 10px;
+    width: 105%; /* Adjust width for desired line length */
+    height: 20px; /* Maintain space for symbols */
+}
+
+.line-break-bottom{
+
+    border-top: 2px dashed #ccc; /* Dashed line */
+    margin: 20px auto; /* Center it horizontally with margin */
+    position: relative; /* Enable positioning for child elements */
+    right: 15px;
+    width: 110%; /* Adjust width for desired line length */
+    height: 20px; /* Maintain space for symbols */
+}
+
+.rotate-symbol {
+    position: absolute; /* Position relative to the parent container */
+    top: -35px; /* Adjust vertical alignment */
+    font-size: 50px;
+    color: #ccc;
+
+}
+
+.rotate-symbol.left-symbol {
+    left: -30px; /* Position on the left */
+    transform: rotate(270deg); /* Rotate 270 degrees for left symbol */
+}
+
+.rotate-symbol.right-symbol {
+    right: -35px; /* Position on the right */
+    transform: rotate(90deg); /* Rotate 90 degrees for right symbol */
+}
+
+.ticket-header {
+    background-color: #f70808;
+    color: white;
+    padding: 10px 0; /* Retain some padding for text spacing */
+    font-size: 16px;
+    border-radius: 13px 13px 0 0;
+    margin: 0; /* Remove any external margins */
+    position: absolute; /* Make the header stick to the top of the ticket */
+    top: 0; /* Align it with the top edge of the container */
+    left: 0; /* Align it with the left edge of the container */
+    width: 100%; /* Ensure the header spans the full width of the ticket */
+    font-weight : 700;
+    box-sizing: border-box; /* Ensure padding doesn’t overflow the container */
+}
+.ticket-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.info-block {
+    text-align: center;
+}
+
+.info-title {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.ticket-route {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    margin: 5px 20px; /* Reduce top and bottom margin */
+}
+
+.ticket-route {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    margin: 5px 20px; /* Reduce margin */
+}
+
+.route-point {
+    width: 40%; /* Ensure equal spacing for route points */
+    text-align: center;
+}
+
+.arrow-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Align arrow and triangle head vertically */
+    justify-content: center;
+    width: 20%; /* Allocate width for the center elements */
+}
+
+.arrow {
+    
+    position: absolute; /* Position relative to the parent container */
+    top: 142px; /* Adjust vertical alignment */
+    font-size: 21px;
+    color: black;
+    font-weight: lighter;
+    margin-right: 20px; /* Add space between arrow and triangle */
+    margin-left: 20px; /* Add space between arrow and triangle */
+    transform: scaleX(3); /* Scale the arrow horizontally */
+   
+}
+
+.triangle-head {
+    position: absolute; /* Position relative to the parent container */
+    right: 125px; /* Adjust vertical alignment */
+    top: 147px; /* Adjust vertical alignment */
+    font-size: 12px;
+    color: black;
+}
+
+.ticket-time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: gray;
+    margin: 15px 0;
+}
+
+.time-block p {
+    margin: 0;
+}
+
+.ticket-id {
+    font-size: 14px;
+    color: gray;
+    margin: 15px 0;
+}
+
+.ticket-status {
+    font-size: 24px;
+    color: red;
+    font-weight: bold;
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+
+.ticket-logo {
+    margin-top: 20px;
+}
+
+.circle {
+    border: 2px dashed gray;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle p:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    margin: 0;
+}
+
+.circle p:last-child {
+    font-size: 12px;
+    margin: 0;
+    color: gray;
+}
+
+/* footer */
+.popup-image {
+    width: 200px; /* Initial size of the image */
+    height: auto;
+    position: relative;
+    animation: popup-effect 2s ease-in-out infinite; /* Loop the popup animation */
+}
+
+@keyframes popup-effect {
+    0%, 100% {
+        transform: scale(1); /* Normal size */
+        opacity: 1; /* Fully visible */
+    }
+    50% {
+        transform: scale(1.2); /* Slightly larger */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="ticket">
+        <header class="ticket-header" >
+            पुणे &nbsp;महानगर &nbsp;परिवहन &nbsp;महामंडळ &nbsp;लि.
+        </header>
+        <div class="ticket-info">
+            <div class="info-block">
+                <p class="info-title">Route</p>
+                <p class="info-value">282</p>
+            </div>
+            <div class="info-block">
+                <p class="info-title">Tickets count</p>
+                <p class="info-value">2F</p>
+            </div>
+            <div class="info-block">
+                <p class="info-title">Fare</p>
+                <p class="info-value">₹20</p>
+            </div>
+        </div>
+
+
+        <div class="ticket-route">
+            <p class="route-point">Vadacha <br>Stop</p>
+            <div class="arrow-container">
+                <span class="arrow">━</span>
+                <span class="triangle-head">▶</span>
+            </div>
+            <p class="route-point">Goodluck <br>Chowk</p>
+        </div>
+
+        <div class="line-break">
+            <span class="rotate-symbol left-symbol">&#9697;</span>
+            <span class="rotate-symbol right-symbol">&#9697;</span>
+        </div>
+        
+         
+
+        <div class="ticket-time">
+            <div class="time-block">
+                <p>Booking Time</p>
+                <p>07 Dec, 24 | 02:22 PM</p>
+            </div>
+            <div class="time-block">
+                <p>Validity Time</p>
+                <p>07 Dec, 24 | 02:52 PM</p>
+            </div>
+        </div>
+        <div class="ticket-id">
+            <p>2412071422X7V5A7</p>
+        </div>
+      
+        <div class="line-break-bottom"></div>        
+        <div class="ticket-footer">
+            <img src="photos/pmpml.png" alt="Ticket Stamp" class="popup-image">
+        </div>
+        
+    </div>
+</body>
+</html>

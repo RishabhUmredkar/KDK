@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMPML Ticket Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .ticket {
+            max-width: 400px;
+            margin: 20px auto;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            background: #e40046;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .info div {
+            font-size: 16px;
+        }
+
+        .route {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .route span {
+            font-size: 14px;
+            display: block;
+            color: #666;
+        }
+
+        .booking-info {
+            text-align: center;
+            font-size: 14px;
+            margin: 20px 0;
+        }
+
+        .invalid {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-20deg);
+            color: red;
+            font-size: 40px;
+            font-weight: bold;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            border-top: 1px dashed #ccc;
+        }
+
+        .stamp {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .stamp img {
+            max-width: 100px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="ticket">
+    <div class="header">
+        पुणे महानगर परिवहन महामंडळ लि.
+    </div>
+    <div class="content">
+        <div class="info">
+            <div>Route<br><strong>282</strong></div>
+            <div>Tickets count<br><strong>2F</strong></div>
+            <div>Fare<br><strong>₹20</strong></div>
+        </div>
+        <div class="route">
+            Vadacha Stop
+            <span>→</span>
+            Goodluck Chowk
+        </div>
+        <div class="booking-info">
+            Booking Time: 07 Dec, 24 | 02:22 PM<br>
+            Validity Time: 07 Dec, 24 | 02:52 PM
+        </div>
+        <div class="invalid">INVALID</div>
+        <div class="stamp">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrp0TSVoe5mvLmavXDMecpPWcAhUB3_4Md0w&s" alt="PMPML Stamp">
+        </div>
+    </div>
+    <div class="footer">
+        पुणे - पिंपरी - चिंचवड महानगर सेवा
+    </div>
+</div>
+
+</body>
+</html>

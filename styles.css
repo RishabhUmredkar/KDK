@@ -9,47 +9,84 @@ body {
     margin: 0;
 }
 
+
+
 .ticket {
     background: white;
-    width: 300px;
+    width: 350px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
     position: relative;
+    box-sizing: border-box;
 }
 
-/* Container for the dashed line and vertical half-circle */
+/* Line with Symbol Container */
+.line-with-symbol {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    margin-top: 0px; /* Add spacing above */
+    width: 100%; /* Ensure the container spans the full ticket width */
+    position: relative; /* Set relative positioning for the symbol */
+}
+
+/* Dashed Line */
 .line-break {
-    position: relative;
-    width: 100%; /* Full width */
-    border-top: 2px dashed #ccc; /* Dashed line with light gray color */
-    margin: 20px 0; /* Space around the line */
+    flex-grow: 1; /* Allow the line to fill the available space */
+    border-top: 2px dashed #000000; /* Dashed line with black color */
+    margin: 0; /* Remove extra vertical spacing */
+    position: relative; /* Position the line relative for better control */
 }
 
-/* Vertical half-circle attached to the right end of the line */
-.line-break::after {
-    content: "";
-    position: absolute;
-    right: 0; /* Attach to the right side of the line */
-    bottom: -10px; /* Position it just below the line */
-    width: 20px; /* Full width of the half circle */
-    height: 20px; /* Full height of the circle */
-    background-color: #000000; /* Match the line color */
-    border-radius: 50% 0 0 50%; /* Create a vertical half circle (right side) */
-
-
-
+/* Rotated Symbol at Start of Line */
+.rotate-symbol-start {
+    position: absolute; /* Position relative to the line-with-symbol container */
+    left: -28px; /* Position the symbol at the start */
+    transform: translateX(-50%) rotate(90deg); /* Rotate the symbol and move it outward */
+    font-size: 22px; /* Increased font size */
+    color: #000000; /* Match the line color */
+    top: 50%; /* Align vertically */
+    transform: translateY(-50%) rotate(270deg); /* Center vertically and rotate */
 }
 
+/* Rotated Symbol at End of Line */
+.rotate-symbol-end {
+    position: absolute; /* Position relative to the line-with-symbol container */
+    right: -28px; /* Position the symbol at the end */
+    transform: translateX(50%) rotate(90deg); /* Rotate the symbol and move it outward */
+    font-size: 22px; /* Increased font size */
+    color: #000000; /* Match the line color */
+    top: 50%; /* Align vertically */
+    transform: translateY(-50%) rotate(90deg); /* Center vertically and rotate */
+}
+
+
+
+
+/* Rotated Symbol on the Right Side */
+.rotate-symbol-right {
+        transform: translateY(-50%) rotate(90deg); /* Center vertically and rotate */
+}
+
+
+
+
+
+/* Ticket Header Styles */
 .ticket-header {
     background-color: #d32f2f;
     color: white;
     padding: 10px 0;
     font-size: 16px;
     border-radius: 6px 6px 0 0;
+    width: 100%; /* Ensure the header spans the full width of the ticket */
+    text-align: center; /* Center the text inside the header */
+    margin: 0; /* Remove any margin around the header */
+    box-sizing: border-box; /* Include padding in the width of the element */
 }
 
+/* Additional Styling for Ticket Content */
 .ticket-info {
     display: flex;
     justify-content: space-between;
@@ -76,16 +113,16 @@ body {
     justify-content: space-around;
     align-items: center;
     font-size: 16px;
-    margin: 5px 10px; /* Reduce top and bottom margin */
-}
-.arrow {
-    font-size: 30px; /* Increase font size to make the arrow larger */
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-    margin: 0 5px; /* Maintain the same minimal space around the arrow */
-    transform: scaleX(3); /* Scale the arrow horizontally to make it longer */
+    margin: 5px 10px;
 }
 
+.arrow {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin: 0 5px;
+    transform: scaleX(3);
+}
 
 .ticket-time {
     display: flex;
@@ -117,6 +154,11 @@ body {
     margin-top: 20px;
 }
 
+.ticket-info .info-block:nth-child(2) {
+    margin-left: 40%; /* Move the Ticket count section to the right */
+}
+
+/* Circle Element */
 .circle {
     border: 2px dashed gray;
     border-radius: 50%;
@@ -139,5 +181,5 @@ body {
 .circle p:last-child {
     font-size: 12px;
     margin: 0;
-    color: gray;
+    color: gray;
 }
